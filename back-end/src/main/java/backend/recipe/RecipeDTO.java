@@ -1,6 +1,6 @@
 package backend.recipe;
 
-public record recipeDTO(
+public record RecipeDTO(
 
         String idMeal,
         String strMeal,
@@ -50,7 +50,10 @@ public record recipeDTO(
         String strMeasure17,
         String strMeasure18,
         String strMeasure19,
-        String strMeasure20
-
+        String strMeasure20,
+        String strSource,
+        String strImageSource,
+        String strCreativeCommonsConfirmed,
+        String dateModified
 ) {
 }
