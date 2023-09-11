@@ -1,0 +1,32 @@
+debug: true
+server:
+  port:
+    error:
+      include-message: always
+spring:
+  sql:
+
+  output:
+    ansi:
+      enabled: always
+
+  datasource:
+    driver-class-name:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          create_namespaces: true
+        ddl-auto: update
+    generate-ddl: true
+
+logging:
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure: ERROR
