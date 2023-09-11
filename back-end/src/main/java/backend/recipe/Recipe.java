@@ -1,7 +1,12 @@
 package backend.recipe;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Recipe {
 
+    @Id
     String id;
     String name;
     String origin;
@@ -49,6 +54,8 @@ public class Recipe {
     String measure19;
     String measure20;
     String source;
+
+    public Recipe() {}
 
     public Recipe(RecipeDTO dto){
         id = dto.idMeal();
