@@ -1,7 +1,8 @@
 package backend.recipe;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import static jakarta.persistence.FetchType.LAZY;
 
 @Entity
 public class Recipe {
@@ -10,6 +11,8 @@ public class Recipe {
     String id;
     String name;
     String origin;
+    String category;
+    @Lob @Basic(fetch = LAZY)
     String instruction;
     String thumbnail;
     String tags;
@@ -61,8 +64,9 @@ public class Recipe {
         id = dto.idMeal();
         name = dto.strMeal();
         origin = dto.strArea();
-        instruction = dto.strInstruction();
-        thumbnail = dto.strMeanThumb();
+        category = dto.strCategory();
+        instruction = dto.strInstructions();
+        thumbnail = dto.strMealThumb();
         tags = dto.strTags();
         ingredient1 = dto.strIngredient1();
         ingredient2 = dto.strIngredient2();

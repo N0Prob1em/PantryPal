@@ -29,7 +29,7 @@ public class BackEndApplication {
 			TypeReference<List<RecipeDTO>> typeReference = new TypeReference<>(){};
 			InputStream inputStream = TypeReference.class.getResourceAsStream("/recipes.json");
 			try {
-				if (service.checkData("52768")){
+				if (!service.checkData("52768")){
 					List<RecipeDTO> recipeDTOS = mapper.readValue(inputStream, typeReference);
 
 					List<Recipe> recipes = new ArrayList<>();

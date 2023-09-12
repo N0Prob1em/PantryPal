@@ -1,13 +1,16 @@
 package backend.recipe;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 public record RecipeDTO(
 
         String idMeal,
         String strMeal,
         String strDrinkAlternate,
+        String strCategory,
         String strArea,
-        String strInstruction,
-        String strMeanThumb,
+        String strInstructions,
+        String strMealThumb,
 
         String strTags,
         String strYoutube,
@@ -20,6 +23,7 @@ public record RecipeDTO(
         String strIngredient7,
         String strIngredient8,
         String strIngredient9,
+
         String strIngredient10,
         String strIngredient11,
         String strIngredient12,

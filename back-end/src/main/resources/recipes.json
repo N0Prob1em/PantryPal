@@ -1,5 +1,4 @@
-{
-    "meals": [
+[
         {
             "idMeal": "52768",
             "strMeal": "Apple Frangipan Tart",
@@ -16336,4 +16335,3 @@
             "dateModified": null
         }
     ]
-}

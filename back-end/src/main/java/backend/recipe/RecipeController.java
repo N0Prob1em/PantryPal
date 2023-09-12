@@ -1,5 +1,6 @@
 package backend.recipe;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +15,7 @@ public class RecipeController {
 
     private final RecipeService service;
 
-
+    @Autowired
     public RecipeController(RecipeService service) {
         this.service = service;
     }
@@ -24,7 +25,7 @@ public class RecipeController {
         return ResponseEntity.ok(service.getAll());
     }
 
-    @GetMapping
+    @GetMapping("/recipe/{id}")
     public ResponseEntity<Recipe> getRecipe(@RequestParam String id){
         return ResponseEntity.ok(service.getRecipe(id));
     }
