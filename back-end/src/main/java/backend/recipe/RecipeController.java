@@ -2,15 +2,13 @@ package backend.recipe;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.List;
 
-@RestController
+@RestController()
+@CrossOrigin
 public class RecipeController {
 
     private final RecipeService service;
@@ -26,7 +24,7 @@ public class RecipeController {
     }
 
     @GetMapping("/recipe/{id}")
-    public ResponseEntity<Recipe> getRecipe(@RequestParam String id){
+    public ResponseEntity<Recipe> getRecipe(@PathVariable String id){
         return ResponseEntity.ok(service.getRecipe(id));
     }
 

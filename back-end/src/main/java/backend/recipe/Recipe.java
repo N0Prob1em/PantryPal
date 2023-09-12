@@ -1,10 +1,18 @@
 package backend.recipe;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.*;
+import org.hibernate.Hibernate;
 
-import static jakarta.persistence.FetchType.LAZY;
+import java.util.Objects;
 
 @Entity
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 public class Recipe {
 
     @Id
@@ -12,7 +20,7 @@ public class Recipe {
     String name;
     String origin;
     String category;
-    @Lob @Basic(fetch = LAZY)
+    @Column(columnDefinition = "TEXT")
     String instruction;
     String thumbnail;
     String tags;
@@ -57,8 +65,6 @@ public class Recipe {
     String measure19;
     String measure20;
     String source;
-
-    public Recipe() {}
 
     public Recipe(RecipeDTO dto){
         id = dto.idMeal();
@@ -109,6 +115,19 @@ public class Recipe {
         measure19 = dto.strMeasure19();
         measure20 = dto.strMeasure20();
         source = dto.strSource();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Recipe recipe = (Recipe) o;
+        return id != null && Objects.equals(id, recipe.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
     }
 }
 
