@@ -15,11 +15,19 @@ public class RecipeService {
     }
 
 
-    public List<Recipe> saveAll(List<Recipe> recipeList){
-        return (List<Recipe>) repository.saveAll(recipeList);
+    public void saveAll(List<Recipe> recipeList){
+        repository.saveAll(recipeList);
     }
 
     public List<Recipe> getAll() {
         return (List<Recipe>) repository.findAll();
+    }
+
+    public Recipe getRecipe(String id) {
+        return repository.findById(id).orElseThrow();
+    }
+
+    public boolean checkData(String id) {
+        return repository.existsById(id);
     }
 }
