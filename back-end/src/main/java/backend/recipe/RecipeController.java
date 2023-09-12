@@ -2,6 +2,7 @@ package backend.recipe;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -18,6 +19,11 @@ public class RecipeController {
 
     @GetMapping
     public ResponseEntity<List<Recipe>> getAll(){
-        return ResponseEntity.ok(service.getAll)
+        return ResponseEntity.ok(service.getAll());
+    }
+
+    @PostMapping
+    public ResponseEntity<Recipe> save(Recipe recipe){
+        return
     }
 }

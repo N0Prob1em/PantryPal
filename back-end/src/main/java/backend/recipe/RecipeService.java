@@ -18,4 +18,8 @@ public class RecipeService {
     public List<Recipe> saveAll(List<Recipe> recipeList){
         return (List<Recipe>) repository.saveAll(recipeList);
     }
+
+    public List<Recipe> getAll() {
+        return (List<Recipe>) repository.findAll();
+    }
 }
